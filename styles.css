@@ -29,8 +29,20 @@ h1 {
 }
 
 /* Styles for Adding a To Do Item */
-#list {
+.todolist {
   padding: 0px;
+}
+
+.bg {
+  background-color: #7282acb4;
+  border-radius: 10px 0px 0px 10px;
+  text-align: center;
+}
+
+.bg2 {
+  background-color: #7282acb4;
+  border-radius: 0px 10px 10px 0px;
+  text-align: center;
 }
 
 /* Styles for List*/

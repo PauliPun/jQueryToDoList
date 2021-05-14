@@ -18,27 +18,6 @@
   </head>
 
   <body class="bodystyle">
-    <ul class="nav justify-content-center contbg">
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown"
-          href="#"
-          role="button"
-          aria-expanded="false"
-          >Choose to show...</a
-        >
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">All</a></li>
-          <li><a class="dropdown-item" href="#">Unfinished</a></li>
-          <li><a class="dropdown-item" href="#">Finished</a></li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">CLEAR ALL</a>
-      </li>
-    </ul>
-
     <!-- To Do list form-->
     <div class="container">
       <div class="row justify-content-center">
@@ -46,7 +25,7 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col-sm-5 mt-2">
+        <div class="col-sm-5 mt-2 pt-3 bg">
           <input
             class="form-control inputBox"
             type="text"
@@ -54,21 +33,46 @@
             aria-label="default input example"
           />
         </div>
-        <div class="col-sm-1 mt-2">
+        <div class="col-sm-1 mt-2 pt-3 bg2">
           <button type="submit" class="btn btn-primary mb-3 addbtn">ADD</button>
         </div>
       </div>
+      <!-- Select & Clear All-->
+      <div class="row justify-content-center pb-2">
+        <div class="col-sm-1 mt-3"></div>
+        <div class="col-sm-2 mt-3">
+          <select
+            class="selectList form-select"
+            aria-label="Default select example"
+          >
+            <option selected>Show...</option>
+            <option value="all">All</option>
+            <option value="unfinished">Unfinished</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+        <div class="col-sm-2 mt-3">
+          <button class="btn btn-danger">Clear List</button>
+        </div>
+      </div>
+
       <!-- To Do List-->
       <div class="row justify-content-center">
         <div class="col-sm-7 contbg mt-2 p-4">
-          <div id="list"></div>
+          <div class="todolist"></div>
         </div>
       </div>
+
       <!-- Counters-->
       <div class="row justify-content-center mt-2">
-        <div class="col-sm-7 p-2">counters</div>
+        <div class="col-sm-7 p-2 counter">
+          <b>All = </b><span id="countAll"></span> <b>Unfinished = </b
+          ><span id="countUnfinished"></span> <b>Finished = </b
+          ><span id="countFinished"></span>
+        </div>
       </div>
     </div>
+
     <!-- Javascript code-->
 
     <script
