@@ -1,0 +1,102 @@
+.bodystyle {
+  background-color: #c0d0e7;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: #333333;
+}
+
+h1 {
+  text-align: center;
+}
+
+.contbg {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* Styles for Main Div */
+.main {
+  margin-top: 20px;
+  background-color: #b2caee;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px #9ba2aca9;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+}
+
+/* Styles for Adding a To Do Item */
+#list {
+  padding: 0px;
+}
+
+/* Styles for List*/
+.todoItem {
+  list-style-type: none;
+  border-radius: 10px;
+}
+
+/* Styles for To Do list */
+.list {
+  border-radius: 10px;
+  background-color: #eaf1fa;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 7px;
+  padding: 10px;
+}
+
+.list li {
+  flex: 1;
+  padding: 5px;
+}
+
+.fin-btn {
+  background-color: #cdf7d8;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.fin-btn:hover {
+  background-color: #b1d6bb;
+}
+
+.del-btn {
+  background-color: #f7c7c7;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.del-btn:hover {
+  background-color: #cea6a6;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ffffff;
+  background-color: #9bafcc;
+  opacity: 70%;
+}
+
+.fa-check,
+.fa-times {
+  pointer-events: none;
+  color: #333333;
+}
+
+/* Styles for Counter div */
+.counter {
+  border-radius: 10px;
+  padding: 10px;
+  flex: auto;
+  text-align: center;
+  font-size: 16px;
+}
