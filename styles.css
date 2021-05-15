@@ -10,24 +10,6 @@ h1 {
   text-align: center;
 }
 
-.contbg {
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-
-/* Styles for Main Div */
-.main {
-  margin-top: 20px;
-  background-color: #b2caee;
-  border-radius: 30px;
-  padding: 20px;
-  box-shadow: 5px 5px 10px #9ba2aca9;
-  width: 35%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 18px;
-}
-
 /* Styles for Adding a To Do Item */
 .todolist {
   padding: 0px;
@@ -52,6 +34,11 @@ h1 {
 }
 
 /* Styles for To Do list */
+.contbg {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
 .list {
   border-radius: 10px;
   background-color: #eaf1fa;
