@@ -1,3 +1,7 @@
+// Variables
+var list = $(".todolist");
+var option = $(".selectList");
+
 // Starter values for counters
 $("#countAll").html(0);
 $("#countUnfinished").html(0);
@@ -79,7 +83,6 @@ function deleteItem(e) {
 // Counter function All Items
 
 function countA() {
-  var list = $(".todolist");
   var countAll = $("#countAll");
   var count = list.children().length;
   countAll.html(count);
@@ -88,7 +91,6 @@ function countA() {
 // Counter function Unfinished Items
 
 function countB() {
-  var list = $(".todolist");
   var allItems = list.children().length;
   var count = 0;
   var completedItems = 0;
@@ -120,9 +122,6 @@ function countC() {
 $(".selectList").on("click", chooseList); // Event handler
 
 function chooseList() {
-  var list = $(".todolist");
-  var option = $(".selectList");
-
   for (i = 0; i < list.children().length; i++) {
     switch (option.val()) {
       case "all":
@@ -149,7 +148,6 @@ function chooseList() {
 
 //CLEAR ALL FUNCTION
 $(".clear-btn").click(function () {
-  var list = $(".todolist");
   var allItems = list.children();
   allItems.fadeOut(function () {
     allItems.remove();
@@ -159,12 +157,10 @@ $(".clear-btn").click(function () {
 
 //LOCALSTORAGE
 function storeTodo() {
-  var list = $(".todolist");
   localStorage.setItem("todos", list.html()); //Stores info
 }
 
 function getTodo() {
-  var list = $(".todolist");
   list.html(localStorage.getItem("todos")); //Gets stored information
 }
 
