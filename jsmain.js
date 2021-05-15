@@ -1,4 +1,15 @@
+// Starter values for counters
+$("#countAll").html(0);
+$("#countUnfinished").html(0);
+$("#countFinished").html(0);
+
+//Call functions
 getTodo();
+countA();
+countB();
+countC();
+
+//FUNCTIONS ---->
 
 //ADD NEW TO DO
 $(".addbtn").click(function () {
@@ -35,6 +46,9 @@ $(".addbtn").click(function () {
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
+  countA();
+  countB();
+  countC();
   storeTodo();
 });
 
@@ -47,6 +61,7 @@ function deleteItem(e) {
     eTarget.fadeOut(function () {
       eTarget.remove();
       storeTodo();
+      countA();
     });
   }
   if (e.target.classList[0] == "fin-btn") {
@@ -54,42 +69,50 @@ function deleteItem(e) {
     eTarget.toggleClass("unfinishedItem"); //Takes away class .unfinishedItem
     eTarget.toggleClass("completed"); //Inputs class .completed
     storeTodo();
+    countB();
+    countC();
   }
 }
 
-//COUNTER FUNCTION
+//COUNTER FUNCTIONS
+
 // Counter function All Items
+
 function countA() {
-  var count = list.childElementCount;
-  countAll.innerHTML = count;
+  var list = $(".todolist");
+  var countAll = $("#countAll");
+  var count = list.children().length;
+  countAll.html(count);
 }
 
 // Counter function Unfinished Items
 
 function countB() {
-  var allItems = list.childElementCount;
+  var list = $(".todolist");
+  var allItems = list.children().length;
   var count = 0;
   var completedItems = 0;
   var i;
-  for (i = 0; i < list.childNodes.length; i++) {
-    if (list.childNodes[i].classList.contains("completed")) {
+  for (i = 0; i < list.children().length; i++) {
+    if (list.children().eq(i).hasClass("completed")) {
       completedItems = completedItems + 1;
     }
   }
   count = allItems - completedItems;
-  countUnfin.innerHTML = count;
+  $("#countUnfinished").html(count);
 }
 
 // Counter function finished Items
 function countC() {
   var completedItems = 0;
+  var list = $(".todolist");
   var i;
-  for (i = 0; i < list.childNodes.length; i++) {
-    if (list.childNodes[i].classList.contains("completed")) {
+  for (i = 0; i < list.children().length; i++) {
+    if (list.children().eq(i).hasClass("completed")) {
       completedItems = completedItems + 1;
     }
   }
-  countFin.innerHTML = completedItems;
+  $("#countFinished").html(completedItems);
 }
 
 //CHOOSE FROM THE LIST
