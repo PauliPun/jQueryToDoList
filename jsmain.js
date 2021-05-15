@@ -1,13 +1,22 @@
+/* I wanted to try out different ways of making an event:
+ the convenience method and with event binding,
+ which is why both of these are used in this project code.
+ I kind of prefer the event binding method (.on()), and by referencing the function.  */
+
 // Variables
 var list = $(".todolist");
 var option = $(".selectList");
+
+//Event Handlers
+$(".todolist").on("click", deleteItem); // Deleting an Item & Completing an Item function used here
+$(".selectList").on("click", chooseList); // Choosing an Item from the select list
 
 // Starter values for counters
 $("#countAll").html(0);
 $("#countUnfinished").html(0);
 $("#countFinished").html(0);
 
-//Call functions
+//Calling functions
 getTodo();
 countA();
 countB();
@@ -16,6 +25,7 @@ countC();
 //FUNCTIONS ---->
 
 //ADD NEW TO DO
+
 $(".addbtn").click(function () {
   var listUl = $("<ul></ul>");
   listUl.addClass("list");
@@ -57,7 +67,6 @@ $(".addbtn").click(function () {
 });
 
 //DELETE ITEM & COMPLETED ITEM
-$(".todolist").on("click", deleteItem); // Event handler
 
 function deleteItem(e) {
   if (e.target.classList[0] == "del-btn") {
@@ -81,7 +90,6 @@ function deleteItem(e) {
 //COUNTER FUNCTIONS
 
 // Counter Function All Items
-
 function countA() {
   var countAll = $("#countAll");
   var count = list.children().length;
@@ -89,7 +97,6 @@ function countA() {
 }
 
 // Counter Function Unfinished Items
-
 function countB() {
   var allItems = list.children().length;
   var count = 0;
@@ -117,9 +124,7 @@ function countC() {
   $("#countFinished").html(completedItems);
 }
 
-//CHOOSE FROM THE LIST  --> Switch statement
-
-$(".selectList").on("click", chooseList); // Event handler
+//CHOOSE FROM THE LIST  --> This time I'm using Switch statement
 
 function chooseList() {
   for (i = 0; i < list.children().length; i++) {
@@ -147,6 +152,7 @@ function chooseList() {
 }
 
 //CLEAR ALL FUNCTION
+
 $(".clear-btn").click(function () {
   var allItems = list.children();
   allItems.fadeOut(function () {
