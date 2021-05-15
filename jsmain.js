@@ -1,3 +1,5 @@
+getTodo();
+
 //ADD NEW TO DO
 $(".addbtn").click(function () {
   var listUl = $("<ul></ul>");
@@ -33,6 +35,7 @@ $(".addbtn").click(function () {
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
+  storeTodo();
 });
 
 //DELETE ITEM & COMPLETED ITEM
@@ -42,50 +45,56 @@ function deleteItem(e) {
   if (e.target.classList[0] == "del-btn") {
     var eTarget = $(e.target).parent();
     eTarget.fadeOut(function () {
-      $(this).remove();
+      eTarget.remove();
+      storeTodo();
     });
   }
   if (e.target.classList[0] == "fin-btn") {
     var eTarget = $(e.target).parent();
     eTarget.toggleClass("unfinishedItem"); //Takes away class .unfinishedItem
     eTarget.toggleClass("completed"); //Inputs class .completed
+    storeTodo();
   }
 }
 
 //COUNTER FUNCTION
+// Counter function All Items
+function countA() {
+  var count = list.childElementCount;
+  countAll.innerHTML = count;
+}
+
+// Counter function Unfinished Items
+
+function countB() {
+  var allItems = list.childElementCount;
+  var count = 0;
+  var completedItems = 0;
+  var i;
+  for (i = 0; i < list.childNodes.length; i++) {
+    if (list.childNodes[i].classList.contains("completed")) {
+      completedItems = completedItems + 1;
+    }
+  }
+  count = allItems - completedItems;
+  countUnfin.innerHTML = count;
+}
+
+// Counter function finished Items
+function countC() {
+  var completedItems = 0;
+  var i;
+  for (i = 0; i < list.childNodes.length; i++) {
+    if (list.childNodes[i].classList.contains("completed")) {
+      completedItems = completedItems + 1;
+    }
+  }
+  countFin.innerHTML = completedItems;
+}
 
 //CHOOSE FROM THE LIST
 
 $(".selectList").on("click", chooseList); // Event handler
-/*
-function chooseList() {
-  var i;
-  var list = $(".todolist");
-  var option = $(".selectList");
-
-  if (option.val() == "finished") {
-    for (i = 0; i < list.children().length; i++) {
-      if (list.children(i).hasClass("completed")) {
-        list.children(i).css("display", "flex"); //Shows those items that have class .completed
-      } else {
-        list.children(i).css("display", "none"); //Hides those items that do not have the class
-      }
-    }
-  } else if (option.val() == "unfinished") {
-    for (i = 0; i < list.children().length; i++) {
-      if (list.children(i).hasClass("unfinishedItem")) {
-        list.children(i).css("display", "flex"); //Shows those items that have class .unfinishedItem
-      } else {
-        list.children(i).css("display", "flex"); //Hides those items that do not have the class
-      }
-    }
-  } else if (option.val() == "all") {
-    for (i = 0; i < list.children().length; i++) {
-      list.children(i).css("display", "flex"); //Shows all items
-    }
-  }
-}
-*/
 
 function chooseList() {
   var list = $(".todolist");
@@ -112,20 +121,29 @@ function chooseList() {
         break;
     }
   }
+  storeTodo();
 }
 
 //CLEAR ALL FUNCTION
+$(".clear-btn").click(function () {
+  var list = $(".todolist");
+  var allItems = list.children();
+  allItems.fadeOut(function () {
+    allItems.remove();
+    storeTodo();
+  });
+});
 
 //LOCALSTORAGE
 function storeTodo() {
-  localStorage.setItem("todos", list.innerHTML); //Stores info
+  var list = $(".todolist");
+  localStorage.setItem("todos", list.html()); //Stores info
 }
 
 function getTodo() {
-  list.innerHTML = localStorage.getItem("todos"); //Gets stored information
+  var list = $(".todolist");
+  list.html(localStorage.getItem("todos")); //Gets stored information
 }
 
 //SORTABLE TO DO LIST
-$(function () {
-  $(".todolist").sortable();
-});
+$(".todolist").sortable();
