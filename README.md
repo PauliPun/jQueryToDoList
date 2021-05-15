@@ -1,6 +1,6 @@
 # jquery
 
-This is my To Do List made with jQuery.
+This is my <b>To Do List</b> made with <b>jQuery</b>.
 
 With the list you can:
 
