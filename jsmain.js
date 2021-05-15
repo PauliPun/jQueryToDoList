@@ -45,8 +45,8 @@ $(".addbtn").click(function () {
   } else {
     listUl
       .hide() //hides the item so it can be faded in
-      .appendTo(".todolist")
-      .fadeIn();
+      .appendTo(".todolist") //Appends the item
+      .fadeIn(); //Fades in
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
@@ -63,7 +63,7 @@ function deleteItem(e) {
   if (e.target.classList[0] == "del-btn") {
     var eTarget = $(e.target).parent();
     eTarget.fadeOut(function () {
-      eTarget.remove();
+      eTarget.remove(); //Fades Out and then removes the item
       storeTodo();
       countA();
     });
@@ -80,7 +80,7 @@ function deleteItem(e) {
 
 //COUNTER FUNCTIONS
 
-// Counter function All Items
+// Counter Function All Items
 
 function countA() {
   var countAll = $("#countAll");
@@ -88,7 +88,7 @@ function countA() {
   countAll.html(count);
 }
 
-// Counter function Unfinished Items
+// Counter Function Unfinished Items
 
 function countB() {
   var allItems = list.children().length;
@@ -117,7 +117,7 @@ function countC() {
   $("#countFinished").html(completedItems);
 }
 
-//CHOOSE FROM THE LIST
+//CHOOSE FROM THE LIST  --> Switch statement
 
 $(".selectList").on("click", chooseList); // Event handler
 
@@ -150,7 +150,7 @@ function chooseList() {
 $(".clear-btn").click(function () {
   var allItems = list.children();
   allItems.fadeOut(function () {
-    allItems.remove();
+    allItems.remove(); //Fades Out and removes all items
     storeTodo();
   });
 });
@@ -165,4 +165,4 @@ function getTodo() {
 }
 
 //SORTABLE TO DO LIST
-$(".todolist").sortable();
+$(".todolist").sortable(); //Makes the to do list sortable
