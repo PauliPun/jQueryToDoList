@@ -2,6 +2,8 @@
 
 This is my <b>To Do List</b> made with <b>jQuery</b>.
 
+<p>Here is the <b>Netlify</b> link: https://todolist2468pp.netlify.app/</p>
+
 With the list you can:
 
 <ul>
