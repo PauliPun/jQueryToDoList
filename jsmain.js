@@ -3,7 +3,7 @@
  which is why both of these are used in this project code.
  I kind of prefer the event binding method (.on()), and by referencing the function.  */
 
-// Variables
+// Often used variables
 var list = $(".todolist");
 var option = $(".selectList");
 
