@@ -60,10 +60,10 @@ $(".addbtn").click(function () {
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
+  storeTodo();
   countA();
   countB();
   countC();
-  storeTodo();
 });
 
 //DELETE ITEM & COMPLETED ITEM
