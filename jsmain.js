@@ -60,7 +60,9 @@ $(".addbtn").click(function () {
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
-  storeTodo();
+  setTimeout(function () {
+    storeTodo();
+  }, 1000);
   countA();
   countB();
   countC();
