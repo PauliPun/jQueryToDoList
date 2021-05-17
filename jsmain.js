@@ -56,13 +56,11 @@ $(".addbtn").click(function () {
     listUl
       .hide() //hides the item so it can be faded in
       .appendTo(".todolist") //Appends the item
-      .fadeIn(); //Fades in
+      .fadeIn(700, storeTodo); //Fades in
     $(".inputBox").removeClass("is-invalid");
   }
   $(".inputBox").val("");
-  setTimeout(function () {
-    storeTodo();
-  }, 1000);
+
   countA();
   countB();
   countC();
