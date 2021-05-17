@@ -158,6 +158,9 @@ $(".clear-btn").click(function () {
   allItems.fadeOut(function () {
     allItems.remove(); //Fades Out and removes all items
     storeTodo();
+    countA();
+    countB();
+    countC();
   });
 });
 
